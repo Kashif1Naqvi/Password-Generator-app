@@ -1,25 +1,56 @@
-<h1>Hello My genrated password is</h1>
-<form action="{% url 'password' %}" >
-  <select name="length"  >
-    <option value="1">1</option>
-    <option value="2">3</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-  </select><br>
-  <input type="checkbox" name="lowercase" >Char Lowercase <br>
-  <input type="checkbox" name="uppercase" >Char Upercase <br>
-  <input type="checkbox" name="specialchar" >Special Char <br>
-  <input type="checkbox" name="number" >number <br>
-  <input type="submit" value="genrated password">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password | Generator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container m-5 p-3 ">
+    <div >
+      <img class="img img-fluid float-left" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAC/VBMVEX////x8fHQ0dKxsrKfn5+b%0AmpuYl5aioqKsq6vDw8PR0dHb293///7l5eVcW1tAPj9JSUpWVFViYWN0c3SMjIy4ubnX2NrHx8ba%0A2tr29vdYWFoxLy8oJyc6NzhFRERvbm+vrq63trbf3+Dd3d1fXl5mZmeNjpC7vb66urulpaVPTU6Q%0AkJBrbG77+/zo6OmAgIBSUVKCgoLq6uqFhYX9/f3h4uLJyszs7Oza2NCyr6JwaVeoqKjDxMbOz9G4%0As56onXacjVmdj16dlHWOin9wcHF6eXmCg4ShoqSYmpybnaC5u73j4+O6spajklaVh1iRiGmno5Ws%0ArrG8vsDNzs+Lioitr7K4ubyqrK6ytLbn5+f4+PjbzqLgz5HDuJWqo4ylo52Sk5aGh4mpqqzBwsSK%0Ai42mqKq+wMGusLPKy818fHy8uK336r7v4Krp26rVx5bp5danqax+f4K0triysaz98s7h0ZvHtnz6%0A+vrFx8kdGQ0zLR1paGe2uLu/wcLv7/Dl383w4rK9qmvRya/R09SlpqjExcfGyMqVlpialorNuHHt%0A7u6zs7NMTE7Bw8XMzc6Jh4H07NLr1pLbxn9ZVEaSjXm1t7nV1datqJvCrWeKfVVhX1mIf2DT1NV3%0AeHja0bTZwXKbilCrrbCxqY+wsrVraGDhynnIsmh7bDjBvrCvsbTIycm0oV9wYzZzak7TvHNjWDJx%0AZT7Nt2xdUi+dm5J4eXxlXDxWTCvz8/ORkZNeVjqnlVmSgkyejVNTTDWNfEV2aT5NRCl+ck6gjlKM%0AfU1lYVa+qmR5bD+FdkNVTjetqqJ2akRsYT5mYE5QRy98fYC4p20sJRNdXmCmmWqunWFAOCGWl5qW%0AhlBHPyNoaWt9e3N6dWXm0IZpXTaEd058dFuqmFrp2J19b0OZj2zAs4Xf0qeak3+foKLW19fm2ra3%0AqnyZjWT89dyimHq8sIn99uL19fW+rXCrnW/f1739+u3CwLnRwIqIek3U0srx7uL///TEt4zx36Gi%0Am4GyoWqKhXAwbim3AAAHpklEQVR4AZSRA5JDQRRF40bQjL5tY2zsf0tTGDun+Iw7+MRwNJ5MZwAi%0APB8uBgeznK4IoYwLCdZ4g7e7/WH1W4Womqbquk4MZk4RRpbtHFDvekRViR/AEKEoln7CzBTMwO7f%0ADWaJqmb45fJFXqCyYlldg+afDdpEZcUHT9fHnHqiPPpfA1AR8dGzOD45PaOGJ84vLvu/H1r4ibd8%0Ar8nV9c3t3f2DQrzHp8arAi7t/Yti57P7hfUEm1JcwGsDsGhmvNGxRBYWuCDs2h6sYIqsjBXj74x1%0Ad891d3fH54/jdfx+KB3nc+73nnPPJSMzC08gpoAgwHy9ElJ+h8vOyc3LdyWRKTC/r8KpNCydkckc%0AA4Iw2tfLueDXlhYWFf88lsWGZnG49BhfNI/PJAuEeBGIuiJ8fcWplvuCceMnTJw0Oc1egi6B+6PF%0A8T9RM5lSmAiLhyUBI7j7IcJcUClTpk6YNn1yKcq+rCzS54vyCp9KJF5GJ8vtcXg5SBVVUES8b/qM%0AmUWzZieNoZRhFQGBzl6ff+UHV8pgcpU6CFdtD9aMqAzvmvFFtd/WoezValV9CMQzrgERRuUyBY1l%0ATbhUAqsKDCGtuaV1Ts64uiCMWsXl1I9GVn7dMPcXsoarwuAUCi1LA/J9O9d54+fMX6CIomDKGgUM%0Av6/iw7wWLhpLIzeqm+x1TThGBrCkPD30i1vb2vM8tBg1liswsNARwTUd4yRGbhkGp7PHYAn+WkCA%0AUMGSCUuXLa/xwKktBGAyg0jksMKtkyTHdjUpdE0qssw/GBCgLm5Ua1t3T35QUxlWTqZrjHyDRMk3%0Akq0E1HI6Ux8JqIUxCSuXrspZnR+EUTUKCDJmp4HP6NTABMMEFE1YmLRTzykAHGsBa1atbTetC1Jj%0A5TCZ1EjjcIRMmYWACKfFqeUyYadZCXiKROj/5s9v7/3RQ8UlWwgIDRySUWPREIaiUIgaYUyS0eyy%0AHpBBX/9Ad7tpVJRaMEyAxGEIpfRhAvY6SplARus0+MsBHYVynDu4IWf1xqYgOkHDFDIkJKaVgE6B%0AaSQwDTI80g2wC+vrF24azNm8xTmULJN2kiSMTindqiELAQ2pkw7lJQMCJDXpt24b3L56bnJqp4UA%0Ah8YcdtEnDXEJRoZMwnMBTZcdOwcHd/VSISKGQcIwSgkCq4hVZA2JKczyB4uKgq70RZN27+7ZEwlp%0AVH4iYNVQF5dupJHw/qNBh2tdRMze2bv37T+gKlAxjBqCAKseFjFWQKDx8bw+0O9b0sAxJn/D9n0H%0AdwiS5UICt9HSQi2uqcx4yJyJxxdAwP+S3JF52w7nHqkYNUVhYCkFoqYmigLO4nsfjcPj62xKSeqx%0A9um5FabNFT+GlEFLMrHwcJ1/PCEMgcdnRdvCoKn5+MD0XSeOt5f39jdPOZSB5cUH8r/sNPtAlSfB%0AhqpVS7/kdM8ybWkb2pJzqvwA1BybGd/H9anObDhEOqksBQdIdl5RWLvtxJq2NdvXmk70U82ZDl6J%0AjYli7tHTnSfx621YVBx/OlO7u2Jo7f75O039vWdKeNLw+E5Won3JUU5kqS0laF3OrlpzYv7OXee+%0AP3+h90AfS4r0rpYmlnHCMt1sCvrQ4DMX969eein38oUrV7fskSv51V+ZMYcMihh2l00AnsQI/4ND%0ArbnXrm/+/kalfwAazY85SrnZl4ZOxJbahJB0C947/fKC28U9d/ZGR7tB4en+CAE2o47kJ7Ft30m5%0AdXb/xEl3791f/kBnMYfWrU+MUKbytEGnq23buUrH7ls09cGDhwsGsx998pcj3ItdxZEWlBzC2XIE%0ABSMfm7IfPnk6Y9eTkVaLR6ITY1A4PEQZHmgHDmAXOS2nf0bLsWfjlj94boXEoHnx9lVZdopEvAc4%0AgZDmF4MXny2+A7m/OzvK2tdYtEPDaAhDUWDO6LIBIOPqy589i2cnLcjtsE7wKCckJSYd0qSBVCcK%0AC8C94HjxwivPO69H9Bzba4UUofVQJ9+qOklKrB8LfH1OW/dka8HrO286ep78GsTEOLgY6RUMoUWF%0AxBzCglVgN2Xm4A3I4rcPF+36Nu03f41mZ4Q7Q1QwlPk0xxPMCB3vlj/3vFZ4e//L97+/qk2oRldC%0AopVjqsN4ySBNjDj74sqMlg8Tr5mGRv4uzS603DGeWHdTxwzTd4EwiK38Pq+l8MOEXNOQ++8O54gD%0A3OIjCjiBXX5+wPEOSaKc2f7t+OmPz605f/fR7wAO8HSkf7od7GaTHoEG9oNn08eXb98dr13Wu/n9%0AHy9+NhoO13uFiFjcvobTkYAAxI7DV4rm5LRt2HJl3J9fdkKm+9ZrqxnKhjACUAHJ895t2n5ufs6q%0AzVsuRP/5jVg0+mvkrZsnSWGJQNlQ5VC8as3A0kuXdh5c/cNfKsMgHbx8RQy25CcS0FRKDXh7+PzO%0AtUPd7b2LdH/proMYFv6lAzPjZB/gGRKdd9zdt6x7sHvwbHDpX+IuIZ3T9zlPw2bTUoB1CJ+bO3/b%0A0MCP7qF/Re4T6xMQfkxoiQpEiLH+B54MvVxH/JtrH8UGZOjDY25mscGiCRVxeuXFiLSkf8RNSKAT%0AVYyGwsD3C1dnt3/96V5AdHNRlSaBh0LyZ6Ge//FWXdXf3vk/7Ku5zE64FfkAAAAASUVORK5CYII=" alt="image">
+      <h1 >Secure Password Generator</h1>
+    </div>
+    <form action="{% url 'password' %}"  class="form form-horizontal mt-5" >
+      <div class="form-group">
+        Password Length:
+        <select name="length" class="form-control"> 
+          <option value="1">1</option>
+          <option value="2">3</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lowercase">Include Lowercase Characters:</label>
+        <input type="checkbox" class="form-control" name="lowercase" >
+      </div>
+      <div class="form-group">
+        <label for="Upercase">Include Uppercase Characters:</label>
+        <input type="checkbox" class="form-control" name="uppercase" >
+      </div>
+      <div class="form-group">
+        <label for="specialchar">Include Symbols:</label>
+        <input type="checkbox" class="form-control" name="specialchar" >
+      </div>
+      <div class="form-group">
+        <label for="number">Include Numbers:</label>
+        <input type="checkbox" class="form-control" name="number" >
+      </div>
+      <input class="btn btn-primary" type="submit" value="genrated password">
+    </form>
+  </div>
+</body>
+</html>
